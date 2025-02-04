@@ -1,7 +1,7 @@
 class Coordinate:
-    def __init__(self, coordX, coordY):
-        self.coordX = coordX
-        self.coordY = coordY
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
 
 
 class Rectangle:
@@ -14,22 +14,20 @@ class Rectangle:
         return self.width * self.height
 
     def print_coordinates(self):
-        end_coordinateX = self.initial_coordinate.coordX + self.width
-        end_coordinateY = self.initial_coordinate.coordY + self.height
-        
-        print('Starting Coordinate (X)): ' + str(self.initial_coordinate.coordX))
-        print('Starting Coordinate (Y)): ' + str(self.initial_coordinate.coordY))
-        print('End Coordinate (X): ' + str(end_coordinateX))
-        print('End Coordinate (Y): ' + str(end_coordinateY))
+        top_right = self.initial_coordinate.x + self.width
+        bottom_left = self.initial_coordinate.y + self.height
+        print('Starting Coordinate (X)): ' + str(self.initial_coordinate.x))
+        print('Starting Coordinate (Y)): ' + str(self.initial_coordinate.y))
+        print('End Point X-Axis (Top Right): ' + str(top_right))
+        print('End Point Y-Axis (Bottom Left): ' + str(bottom_left))
 
-    def create():
-        initial_coordinate = Coordinate(50, 100)
-        rectangle = Rectangle(initial_coordinate, 90, 10)    
-        return rectangle
+def create_rectangle():
+    initial_coordinate = Coordinate(50, 100)
+    rectangle = Rectangle(initial_coordinate, 90, 10)    
+    return rectangle
 
 
-rectangle = Rectangle(initial_coordinate, 90, 10).create()
+rectangle = create_rectangle()
 
 print(rectangle.get_area())
-
 rectangle.print_coordinates()
